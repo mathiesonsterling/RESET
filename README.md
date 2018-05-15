@@ -16,9 +16,9 @@ Each entity has
 #Standard endpoints
 - /entitytypes - lists the entities supported by the sytem.  This lists only the AggregateRoots of the system
 - /events/entitytype - lists the events that an AggregateRoot can consume, and the fields of each 
-- /{aggregateroot}/ - lists all aggregate roots a user has access to
-- /{aggregateroot}/{Id} - lists the individual item
-- /{aggregateroot}/{Id}/events - provides an endpoint to POST events to the specified entity
+- /{entitytype}/ - lists all entities of the specified type a user has access to
+- /{entitytype}/{Id} - lists the individual item
+- /{entitytype}/{Id}/events - provides an endpoint to POST events to the specified entity
 
 #Design Guidelines
 - keep the number of aggregate roots small if possible, as events push towards them and this handles keeping streams intact.  For example, in an ecommerce system, an Order is a good aggregate root.  An OrderItem, while useful as a subitem, is not a good entity root because it constantly needs the context of an order.  In general, if you find yourself frequently using a group of items in code, it's a clear sign that you should define that group as an entity root instead.
