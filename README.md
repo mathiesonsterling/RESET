@@ -11,12 +11,26 @@ Each entity has
 - LastModified - datetime of when the last event of the entity
 - Type - type of the entity (may be provided by class name)
 - Description - describes what the entity does, and is listed through the API
+
+
 #Value Objects - objects that do not maintain state (unit values, currencies, etc) are Value Objects
+
+
 #Repositories - objects are stored in a repository, which abstracts out storage.  Objects should only be created through a repository
+
+
 #Events - every change to an entity state is reflected in an event.  This allows recreation, auditing, and retroactive changes after business logic modifications or bug fixes.  Events are always targeted and handled by an Aggregate Root
+Each event has
+- EntityId - id of the entity this event should modify
+- EventId - unique ID for the event
+- UserId - user who generated the event, nullable
+- Timestamp - when the event was generated, down to the clock tick
+- Description - text of what the event does
+- Type - type of the event (may be provided by class name)
 
 #Standard endpoints
 - /entitytypes - lists the entities supported by the sytem.  This lists only the AggregateRoots of the system
+- /events - list all possible events in the system
 - /events/entitytype - lists the events that an AggregateRoot can consume, and the fields of each 
 - /{entitytype}/ - lists all entities of the specified type a user has access to
 - /{entitytype}/{Id} - lists the individual item
