@@ -14,8 +14,8 @@ Each entity has
 #Events - every change to an entity state is reflected in an event.  This allows recreation, auditing, and retroactive changes after business logic modifications or bug fixes.  Events are always targeted and handled by an Aggregate Root
 
 #Standard endpoints
-/entitytypes - lists the entities supported by the sytem.  This lists only the AggregateRoots of the system, with subtypes listed below
-/events/entitytype - lists the events that an AggregateRoot can consume, and the fields of each 
-/{aggregateroot}/ - lists all aggregate roots a user has access to
-/{aggregateroot}/{Id} - lists the individual item
-/{aggregateroot}/{Id}/events - provides an endpoint to POST events to the specified entity
+- /entitytypes - lists the entities supported by the sytem.  This lists only the AggregateRoots of the system, with subtypes listed below
+- /events/entitytype - lists the events that an AggregateRoot can consume, and the fields of each 
+- /{aggregateroot}/ - lists all aggregate roots a user has access to
+- /{aggregateroot}/{Id} - lists the individual item
+- /{aggregateroot}/{Id}/events - provides an endpoint to POST events to the specified entity
